@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spotify Playlist</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  iframe {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #0ff, 0 0 40px #f0f;
+  }
+</style>
+</head>
+<body>
+
+<!-- Replace YOUR_PLAYLIST_ID with your actual Spotify playlist ID -->
+<iframe src="https://open.spotify.com/playlist/2rAxacykyBTp8qJjZsvbiP?si=04b4ba04c4e84d28" width="300" height="380" allow="encrypted-media"></iframe>
+
+</body>
+</html>
