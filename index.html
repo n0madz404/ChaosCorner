@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>n0madz's Indie Chaos Corner</title>
+<style>
+  body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    margin: 0; padding: 0;
+    overflow-x: hidden;
+    background: linear-gradient(120deg, #ff99ff, #00ffff, #ffff99);
+    color: #fff;
+    position: relative;
+  }
+
+  /* Starfield */
+  #stars { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-1; background:black; }
+  canvas { display:block; }
+
+  /* Headers & links */
+  h1, h2, h3 { text-shadow:0 0 5px #fff,0 0 10px #0ff,0 0 20px #f0f; font-weight:bold; transition: all 0.3s; }
+  a { color:#ff0; font-weight:bold; text-decoration:none; transition: all 0.3s; }
+  a:hover { color:#0f0; text-shadow:0 0 5px #0f0; }
+
+  section { padding:2em; border-bottom:3px dashed #fff; position:relative; }
+  nav { position: fixed; top:0; width:100%; background: #222; padding: 1em; z-index: 999; display:flex; flex-wrap:wrap; }
+  nav a { margin: 0.5em 1em; }
+
+  .container { max-width:900px; margin:auto; padding-top:80px; }
+
+  .project { background: rgba(0,0,0,0.4); margin:1em 0; padding:1em; border-radius:10px; }
+  .books { display:flex; flex-wrap:wrap; gap:1em; }
+  .book { background: rgba(0,0,0,0.2); padding:0.5em; width:120px; border-radius:5px; text-align:center; }
+  .playlist { margin:1em 0; }
+  .photos { display:flex; flex-wrap:wrap; gap:1em; }
+  .photos img, #collectibles img { width:150px; border:3px solid #fff; border-radius:10px; box-shadow:0 0 15px #0ff; transition: all 0.3s; }
+  .links a { display:inline-block; margin:0.5em; background:#ff0; color:#222; padding:0.5em 1em; border-radius:10px; box-shadow:0 0 10px #f0f; transition: all 0.3s; }
+
+  .blink { animation: blinker 1s linear infinite; }
+  @keyframes blinker { 50% { opacity: 0; } }
+
+  .marquee { overflow:hidden; white-space:nowrap; box-sizing:border-box; animation: marquee 15s linear infinite; color:#ff0; text-shadow:0 0 5px #0f0,0 0 10px #f0f; font-weight:bold; }
+  .marquee.reverse { animation: marqueeReverse 20s linear infinite; }
+  @keyframes marquee { 0% { transform: translate(100%,0); } 100% { transform: translate(-100%,0); } }
+  @keyframes marqueeReverse { 0% { transform: translate(-100%,0); } 100% { transform: translate(100%,0); } }
+
+  .gif { width:80px; height:80px; margin:0.2em; transition: all 0.3s; }
+
+  .sparkle { position: fixed; width: 5px; height: 5px; background: yellow; border-radius: 50%; pointer-events: none; animation: sparkleAnim 2s infinite; }
+  @keyframes sparkleAnim { 0% { opacity:0; transform: translateY(0) scale(0.5); } 50% { opacity:1; transform: translateY(-50px) scale(1); } 100% { opacity:0; transform: translateY(0) scale(0.5); } }
+
+  /* Party Mode */
+  .party h1, .party h2, .party h3, .party a { animation: partyBlink 0.5s infinite; }
+  @keyframes partyBlink { 0%{color:#ff0;text-shadow:0 0 10px #f0f;}25%{color:#0ff;text-shadow:0 0 10px #ff0;}50%{color:#f0f;text-shadow:0 0 10px #0ff;}75%{color:#0f0;text-shadow:0 0 10px #ff0;}100%{color:#ff0;text-shadow:0 0 10px #f0f;} }
+  .party .gif, .party .photos img, .party #collectibles img { animation: spinImg 2s linear infinite; }
+  @keyframes spinImg { 0%{transform:rotate(0deg);} 100%{transform:rotate(360deg);} }
+  .party .marquee { animation-duration:5s; }
+  .party .marquee.reverse { animation-duration:7s; }
+  .party-body-flicker { animation: bgFlicker 0.5s infinite; }
+  @keyframes bgFlicker { 0%{background:linear-gradient(120deg,#ff99ff,#00ffff,#ffff99);}50%{background:linear-gradient(120deg,#00ffff,#ffff99,#ff99ff);}100%{background:linear-gradient(120deg,#ff99ff,#00ffff,#ffff99);} }
+
+  #partyToggle { position: fixed; bottom: 10px; right: 10px; z-index:1000; background:#ff0; color:#222; padding:0.5em 1em; border-radius:10px; font-weight:bold; cursor:pointer; }
+</style>
+</head>
+<body id="body">
+
+<canvas id="stars"></canvas>
+
+<nav>
+  <a href="#about">About Me</a>
+  <a href="#projects">Projects</a>
+  <a href="#books">Books</a>
+  <a href="#spotify">Spotify</a>
+  <a href="#photos">Photos</a>
+  <a href="#collectibles">Collectibles</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div class="container">
+
+<section id="about">
+  <h1>Hello! I'm n0madz <span class="blink">★</span></h1>
+  <p>Welcome to my chaotic indie web corner! Blinkers, marquee madness, and animated chaos await!</p>
+  <div class="marquee">⚡ Welcome to the ultimate indie web playground! ⚡</div>
+  <div class="marquee reverse">★ Geeky chaos is my jam ★</div>
+  <div>
+    <img class="gif" src="gifs/giphy1.gif" alt="Retro GIF">
+    <img class="gif" src="gifs/giphy2.gif" alt="Retro GIF">
+    <img class="gif" src="gifs/giphy3.gif" alt="Retro GIF">
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="project">
+    <h3>DraftLink</h3>
+    <p>A platform for MTG players to draft decks in person and play online. <a href="#">Check it out</a></p>
+  </div>
+  <div class="project">
+    <h3>Book Posters</h3>
+    <p>Python tool to generate poster-style images for books with cover art, quotes, and metadata. <a href="#">View project</a></p>
+  </div>
+</section>
+
+<section id="books">
+  <h2>Reading Tracker</h2>
+  <div class="books">
+    <div class="book"><p><strong>The Hobbit</strong></p><p>J.R.R. Tolkien</p></div>
+    <div class="book"><p><strong>Dune</strong></p><p>Frank Herbert</p></div>
+    <div class="book"><p><strong>Neuromancer</strong></p><p>William Gibson</p></div>
+  </div>
+</section>
+
+<section id="spotify">
+  <h2>Spotify Playlists</h2>
+  <div class="playlist">
+    <iframe src="spotify_playlist.html" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+  </div>
+</section>
+
+<section id="photos">
+  <h2>Photos</h2>
+  <div class="photos">
+    <img src="photos/photo1.png" alt="Placeholder">
+    <img src="photos/photo2.png" alt="Placeholder">
+    <img src="photos/photo3.png" alt="Placeholder">
+  </div>
+</section>
+
+<section id="collectibles">
+  <h2>Blinkers, Banners & Collectibles</h2>
+  <div>
+    <img src="collectibles/collectible1.gif" alt="Blinker">
+    <img src="collectibles/collectible2.gif" alt="Retro Banner">
+    <img src="collectibles/collectible3.gif" alt="Collectible">
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact / Links</h2>
+  <div class="links">
+    <a href="#">Email Me</a>
+    <a href="#">Twitter</a>
+    <a href="#">GitHub</a>
+    <a href="#">LinkedIn</a>
+  </div>
+</section>
+
+</div>
+
+<button id="partyToggle">🎉 PARTY MODE 🎉</button>
+
+<script>
+/* Starfield */
+const canvas = document.getElementById('stars');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+let stars=[];for(let i=0;i<150;i++){stars.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.5,d:Math.random()*1.5});}
+function drawStars(){ctx.clearRect(0,0,canvas.width,canvas.height);ctx.fillStyle='white';stars.forEach(s=>{ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fill();});}
+function updateStars(){stars.forEach(s=>{s.y+=0.5*s.d;if(s.y>canvas.height)s.y=0;});}
+function animate(){drawStars();updateStars();requestAnimationFrame(animate);}
+animate();
+
+/* Sparkles */
+function createSparkle(){const sparkle=document.createElement('div');sparkle.className='sparkle';sparkle.style.left=Math.random()*window.innerWidth+'px';sparkle.style.top=Math.random()*window.innerHeight+'px';document.body.appendChild(sparkle);setTimeout(()=>{sparkle.remove();},2000);}
+setInterval(createSparkle,200);
+
+/* Party Mode Toggle */
+const toggle = document.getElementById('partyToggle');
+toggle.addEventListener('click',()=>{document.body.classList.toggle('party-body-flicker');document.body.classList.toggle('party');});
+</script>
+
+</body>
+</html>
