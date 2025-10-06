@@ -24,7 +24,8 @@
 <body>
 
 <!-- Replace YOUR_PLAYLIST_ID with your actual Spotify playlist ID -->
-<iframe src="https://open.spotify.com/playlist/2rAxacykyBTp8qJjZsvbiP?si=04b4ba04c4e84d28" width="300" height="380" allow="encrypted-media"></iframe>
+<iframe src="https://open.spotify.com/playlist/2rAxacykyBTp8qJjZsvbiP?si=45b51d6103be427d" width="300" height="380" allow="encrypted-media"></iframe>
+
 
 </body>
 </html>
